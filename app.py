@@ -21,7 +21,7 @@ print("Debug: Model and data loaded")
 print("Number of columns:", len(columns))
 print("First few columns:", columns[:5])
 
-@app.route('/predict_price', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict_price():
     try:
         # Parse JSON request body
