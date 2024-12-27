@@ -6,8 +6,12 @@ import json
 
 app = Flask(__name__)
 
-# Enable CORS
-CORS(app)
+# Enable CORS with specific configuration to support credentials
+CORS(app, resources={r"/*": {
+    "origins": "http://localhost:5173",  # React frontend origin
+    "allow_headers": "*",               # Allow all headers
+    "supports_credentials": True        # Allow credentials (cookies, auth headers)
+}})
 
 # Load the saved model and scaler
 with open("banglore_home_prices.pickle", "rb") as model_file:
