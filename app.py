@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pickle
 import numpy as np
 import json
 
 app = Flask(__name__)
+
+# Enable CORS
+CORS(app)
 
 # Load the saved model and scaler
 with open("banglore_home_prices.pickle", "rb") as model_file:
